@@ -4,7 +4,7 @@ import NextImage from "next/legacy/image";
 import HoverBox from "@component/HoverBox";
 import { H4 } from "@component/Typography";
 import { currency } from "@utils/utils";
-
+import Image from 'next/image';
 // ========================================================
 type ProductCard2Props = {
   slug: string;
@@ -21,7 +21,7 @@ const ProductCard2: FC<ProductCard2Props> = ({
   slug,
 }) => {
   return (
-    <Link href={`/product/${slug}`}>
+    <Link href={`shoplistwithcat/${slug}`}>
       <HoverBox borderRadius={8} mb="0.5rem">
         <NextImage
           src={imgUrl}
@@ -30,6 +30,12 @@ const ProductCard2: FC<ProductCard2Props> = ({
           layout="responsive"
           alt={title}
         />
+        {/* <Image 
+            alt="Apple Watch" 
+            width={500}  // Specify width
+            height={300} // Specify height
+            src={imgUrl}
+          /> */}
       </HoverBox>
 
       <H4 fontWeight="600" fontSize="14px" mb="0.25rem">

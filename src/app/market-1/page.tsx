@@ -12,6 +12,11 @@ import Section11 from "@sections/market-1/Section11";
 import Section12 from "@sections/market-1/Section12";
 import Section13 from "@sections/market-1/Section13";
 
+const categeoryPage = {
+  "page": "1",
+  "limit": "6",
+  "search":""
+}
 const Market1 = async () => {
   const carList = await api.getCarList();
   const carBrands = await api.getCarBrands();
@@ -28,14 +33,18 @@ const Market1 = async () => {
   const topCategories = await api.getTopCategories();
   const topRatedBrands = await api.getTopRatedBrand();
   const mainCarouselData = await api.getMainCarousel();
-  const newArrivalsList = await api.getNewArrivalList();
+  const newArrivalsList = await api.getNewArrivalList(categeoryPage);
   const bigDiscountList = await api.getBigDiscountList();
   const topRatedProducts = await api.getTopRatedProduct();
 
   return (
     <main>
+
       {/* HERO CAROUSEL AREA */}
       <Section1 carouselData={mainCarouselData} />
+
+      {/* NEW ARRIVALS AREA */}
+      <Section5 newArrivalsList={newArrivalsList} />
 
       {/* FLASH DEAL PRODUCTS AREA */}
       <Section2 products={flashDealsData} />
@@ -49,9 +58,7 @@ const Market1 = async () => {
         topRatedBrands={topRatedBrands}
       />
 
-      {/* NEW ARRIVALS AREA */}
-      <Section5 newArrivalsList={newArrivalsList} />
-
+  
       {/* BIG DISCOUNT AREA */}
       <Section13 bigDiscountList={bigDiscountList} />
 

@@ -16,7 +16,7 @@ type ShopCard1Props = {
   phone: string;
   rating: number;
   imgUrl: string;
-  address: string;
+  address: any;
   shopUrl: string;
   coverImgUrl: string;
 };
@@ -48,7 +48,7 @@ const ShopCard1: FC<ShopCard1Props> = ({
           </Icon>
 
           <SemiSpan color="white" ml="12px">
-            {address}
+            {/* {address} */}
           </SemiSpan>
         </FlexBox>
 
@@ -61,16 +61,30 @@ const ShopCard1: FC<ShopCard1Props> = ({
             {phone}
           </SemiSpan>
         </FlexBox>
+        <FlexBox mb="8px">
+        
+  <svg style={{width:'20px',marginTop:'2px'}} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+</svg>
+
+          <SemiSpan color="white" ml="12px">
+            {address.distance != undefined ?
+           <>{address.duration}  • {address.distance}</> 
+            :
+          <span>  ...</span>
+            }
+          </SemiSpan>
+        </FlexBox>
       </Box>
 
       <FlexBox pl="30px" pr="18px" justifyContent="space-between">
-        <Avatar
+        {/* <Avatar
           src={imgUrl}
           size={64}
           mt="-32px"
           border="4px solid"
           borderColor="gray.100"
-        />
+        /> */}
         <Link href={shopUrl}>
           <IconButton my="0.25rem">
             <Icon defaultcolor="auto">arrow-long-right</Icon>

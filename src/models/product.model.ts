@@ -19,6 +19,7 @@ interface Product {
   categories: any[];
   reviews?: Review[];
   published?: boolean;
+  data:[]
 }
 
 export default Product;

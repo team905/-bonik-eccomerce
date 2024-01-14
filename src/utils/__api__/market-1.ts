@@ -6,6 +6,7 @@ import Service from "@models/service.model";
 import Category from "@models/category.model";
 import MainCarouselItem from "@models/market-1.model";
 
+const baseURL = process.env.NEXT_PUBLIC_API_URL;
 const getTopRatedProduct = async (): Promise<Product[]> => {
   const response = await axios.get("/api/market-1/toprated-product");
   return response.data;
@@ -16,9 +17,20 @@ const getTopRatedBrand = async () => {
   return response.data;
 };
 
-const getNewArrivalList = async (): Promise<Product[]> => {
-  const response = await axios.get("/api/market-1/new-arrivals");
-  return response.data;
+// const getNewArrivalList = async (): Promise<Product[]> => {
+//   const response = await axios.get("/api/market-1/new-arrivals");
+//   return response.data;
+// };
+const getNewArrivalList = async (payload): Promise<Product[]> => {
+  try {
+    const response = await axios.post(`${baseURL}/category/all`, payload);
+    console.log("response", response);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching new arrivals:", error);
+    // Handle the error appropriately
+    // Maybe return a default value or rethrow the error
+  }
 };
 
 const getCarBrands = async (): Promise<Brand[]> => {
