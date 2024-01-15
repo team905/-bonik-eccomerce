@@ -24,11 +24,11 @@ const AppLayout: FC<Props> = ({
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
 
-    <Topbar />
+    {/* <Topbar /> */}
 
-    <Sticky fixedOn={0}>
+    {/* <Sticky fixedOn={0}>
       <Header />
-    </Sticky>
+    </Sticky> */}
 
     {navbar ? <div className="section-after-sticky">{navbar}</div> : null}
 
