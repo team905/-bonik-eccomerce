@@ -11,6 +11,7 @@ import Product from "@models/product.model";
 
 type Props = { shop: Shop };
 const ProductDetails = ({ shop }: Props) => {
+  console.log("shop",shop)
   const width: any = useWindowSize();
   const isTablet = width < 1025;
 
@@ -31,7 +32,7 @@ const ProductDetails = ({ shop }: Props) => {
         </Sidenav>
       )}
 
-      <ProductCardList products={shop.products?.slice(0, 9) as Product[]} />
+      <ProductCardList products={shop.data?.slice(0, 9) as Product[]} />
     </Grid>
   );
 };

@@ -20,7 +20,7 @@ const ProductCard1List: FC<Props> = ({ products }) => {
               id={item.id}
               slug={item.slug}
               price={item.price}
-              title={item.title}
+              title={item.name}
               off={item.discount}
               images={item.images as string[]}
               imgUrl={item.thumbnail}

@@ -8,7 +8,7 @@ import ProductDetails from "@component/shop/ProductDetails";
 
 const ShopDetails = async ({ params }: { params: { slug: string } }) => {
   const shop = await api.getShopBySlug(String(params.slug));
-
+console.log("shop",shop)
   return (
     <Fragment>
       <ShopIntroCard />

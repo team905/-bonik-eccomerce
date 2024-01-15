@@ -26,9 +26,25 @@ export const getSlugs = async (): Promise<{ params: { slug: string } }[]> => {
   return response.data;
 };
 
-export const getShopBySlug = async (slug: string): Promise<Shop> => {
-  const response = await axios.get("/api/shops/single", { params: { slug } });
-  return response.data;
+
+
+const getShopBySlug = async (id) => {
+  let payload = {
+    "page": "1",
+    "limit": "10",
+    "categoryId": "0a4a0d05-a4e7-4a1e-9a19-bfbe7c253084",
+    "userId":"8af8ba06-4d25-422a-b08d-9e581f4bf578",
+    "search":""
+  }
+  try {
+    const response = await axios.post(`${baseURL}/product/getByCategory`, payload);
+    console.log("response", response);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching new arrivals:", error);
+    // Handle the error appropriately
+    // Maybe return a default value or rethrow the error
+  }
 };
 
 export default { getShopList, getSlugs, getShopBySlug };
